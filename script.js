@@ -15,22 +15,25 @@ const state = {
 async function getEventFromHash(){
     await getData()
     const id = window.location.hash.slice(1);
-    console.log(id)
-    console.log(state.jSON[1].id)
+    // console.log(id)
+    // console.log(state.jSON[1].id)
     const selection = state.jSON.find((item) => {
-        return item.id === id*1;
+        return item.id === 1 * id;
     })
-    console.log(selection)
+    console.log(state.jSON)
+    // console.log(selection)
     state.selection = selection
+    console.log(state.selection)
 }
-getEventFromHash()
 
-function renderSelection(){
+
+async function renderSelection(){
+    await getData();
     const selectionHTML = `
     <h2>ID: ${state.selection.id}</h2>
     <h4>TITLE: ${state.selection.title}</h4>
     <p>BODY: ${state.selection.body}</p>`;
-    console.log("selection --> ", selectionHTML)
+    // console.log("selection --> ", selectionHTML)
     selectionList.innerHTML = selectionHTML;
 }
 
